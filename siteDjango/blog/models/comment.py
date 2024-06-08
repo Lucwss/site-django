@@ -7,7 +7,6 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     likes = models.IntegerField(default=0)
     shares = models.IntegerField(default=0)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_comments')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     
@@ -15,4 +14,4 @@ class Comment(models.Model):
         ordering = ('-created_at',)
         
     def __str__(self):
-        return self.content
+        return "Comment {} by {}".format(self.content, self.user.username)

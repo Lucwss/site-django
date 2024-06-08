@@ -1,2 +1,2 @@
 from .post import PostView
-from .post import PostDetail
+from blog.forms import post_detail
